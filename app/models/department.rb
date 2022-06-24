@@ -5,4 +5,7 @@ class Department < ApplicationRecord
 
   # Active Storage
   has_one_attached :cover
+
+  # Asociation
+  has_many :employees
 end

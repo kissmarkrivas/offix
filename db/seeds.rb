@@ -31,23 +31,23 @@ operations.cover.attach(io: URI.open(cover_url), filename: "operations.jpg")
 puts operations.errors.full_messages unless operations.save
 
 # # Employees
-# puts "Seeding employees"
-# Employee.destroy_all
+puts "Seeding employees"
+Employee.destroy_all
 
-# 10.times do |n|
-#   name = Faker::Name.name
-#   employee = [marketing, engineering, operations].sample.employees.new(
-#     name: name,
-#     nationality: Faker::Nation.nationality,
-#     email: Faker::Internet.safe_email(name: name),
-#     position: Faker::Job.title,
-#     birth_date: Faker::Date.between(from: 40.years.ago, to: 20.years.ago),
-#     password: "letmein"
-#   )
-#   avatar_url = Faker::Avatar.image
-#   employee.avatar.attach(io: URI.open(avatar_url), filename: "employee-#{n}.jpg")
-#   puts employee.errors.full_messages unless employee.save
-# end
+10.times do |n|
+  name = Faker::Name.name
+  employee = [marketing, engineering, operations].sample.employees.new(
+    name: name,
+    nationality: Faker::Nation.nationality,
+    email: Faker::Internet.safe_email(name: name),
+    position: Faker::Job.title,
+    birth_date: Faker::Date.between(from: 40.years.ago, to: 20.years.ago),
+    password: "letmein"
+  )
+  avatar_url = Faker::Avatar.image
+  employee.avatar.attach(io: URI.open(avatar_url), filename: "employee-#{n}.jpg")
+  puts employee.errors.full_messages unless employee.save
+end
 
 
 # admin = engineering.employees.new(
